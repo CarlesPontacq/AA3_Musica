@@ -382,8 +382,9 @@ MonoBehaviour:
   RealChannelSettings: []
   Plugins: []
   MasterBanks:
-  - Master
-  Banks: []
+  - Desktop/Master
+  Banks:
+  - Desktop/Lucidity
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
