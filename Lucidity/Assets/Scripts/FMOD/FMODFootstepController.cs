@@ -11,6 +11,7 @@ public class FMODFootstepController : MonoBehaviour
     private float MaterialValue;
     private float RunValue;
     public float distance = 2f;
+    public float volume = 2f;
     public LayerMask lm;
 
     [SerializeField] PlayerMovement playerMovement;
@@ -31,18 +32,14 @@ public class FMODFootstepController : MonoBehaviour
 
     }
 
-
     void PlayFootstepsEvent()
     {
-        Debug.Log("=== FOOTSTEP EVENT CALLED FROM ANIMATION ==="); // Debe aparecer en consola
-
-
         MaterialCheck();
         RunCheck();
         Run = FMODUnity.RuntimeManager.CreateInstance(eventPath);
-        FMODUnity.RuntimeManager.AttachInstanceToGameObject(Run, feet, GetComponent<Rigidbody>());
         Run.setParameterByName("SurfaceType", MaterialValue, false);
         Run.setParameterByName("PlayerSpeed", RunValue, false);
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(Run, feet, GetComponent<Rigidbody>());
         Run.start();
         Run.release();
     }
