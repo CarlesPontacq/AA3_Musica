@@ -3,15 +3,18 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class FMODFootstepController : MonoBehaviour
+public class FootstepController : MonoBehaviour
 {
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioResource walkingTileSound;
+    [SerializeField] private AudioResource runningTileSound;
     [SerializeField] private AudioResource walkingWoodSound;
+    [SerializeField] private AudioResource runningWoodSound;
+    [SerializeField] private PlayerInputObserver inputObserver;
 
 
     private float MaterialValue;
-    private float RunValue;
+    private bool isRunning;
     public float distance = 2f;
     public float volume = 2f;
     public LayerMask lm;
@@ -36,10 +39,8 @@ public class FMODFootstepController : MonoBehaviour
 
     void PlayFootstepSound()
     {
-        Debug.Log("PlayingSound");
         MaterialCheck();
         RunCheck();
-        audioSource.resource = MaterialValue == 1 ? walkingTileSound : walkingWoodSound; 
         audioSource.Play();
     }
 
@@ -53,8 +54,6 @@ public class FMODFootstepController : MonoBehaviour
                     MaterialValue = 1;
                     break;
                 case "Wood":
-                    MaterialValue = 0;
-                    break;
                 default:
                     MaterialValue = 0;
                     break;
@@ -64,14 +63,39 @@ public class FMODFootstepController : MonoBehaviour
         {
             MaterialValue = 0;
         }
-
-        Debug.Log("Parameter Material: " + MaterialValue);
     }
 
     void RunCheck()
     {
-        RunValue = playerMovement.IsRunning ? 1 : 0;
-        Debug.Log("Parameter Run: " + RunValue);
+        isRunning = inputObserver.IsPressingRun;
 
+
+        if (!isRunning)
+        {
+            switch (MaterialValue)
+            {
+                case 1:
+                    audioSource.resource = walkingTileSound;
+                    break;
+                case 0:
+                default:
+                    audioSource.resource = walkingWoodSound;
+                    break;
+            }
+        }
+        else
+        {
+            switch (MaterialValue)
+            {
+                case 1:
+                    audioSource.resource = runningTileSound;
+                    break;
+                case 0:
+                default:
+                    audioSource.resource = runningWoodSound;
+                    break;
+            }
+        }
+        Debug.Log("Material: " + MaterialValue + " - Run: " + isRunning);
     }
 }

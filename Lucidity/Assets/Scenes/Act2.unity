@@ -7220,7 +7220,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1580745479}
   walkingTileSound: {fileID: 6418180475301049370, guid: 3f455990ac2bf894a9f9a96cc3377904, type: 2}
+  runningTileSound: {fileID: 6418180475301049370, guid: 76afd31eb78d02644af8e2b09323c99b, type: 2}
   walkingWoodSound: {fileID: 6418180475301049370, guid: fd9893864024d774b994fcc911b88eb0, type: 2}
+  runningWoodSound: {fileID: 6418180475301049370, guid: 2126ded29e55af34c86a10f88b1a099d, type: 2}
+  inputObserver: {fileID: 1937983206}
   distance: 2
   volume: 2
   lm:
