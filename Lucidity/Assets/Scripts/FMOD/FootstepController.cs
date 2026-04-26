@@ -11,7 +11,9 @@ public class FootstepController : MonoBehaviour
     [SerializeField] private AudioResource walkingWoodSound;
     [SerializeField] private AudioResource runningWoodSound;
     [SerializeField] private PlayerInputObserver inputObserver;
+    [SerializeField] private Rigidbody playerRef;
 
+    private const float MinVelocity = 0.1f;
 
     private float MaterialValue;
     private bool isRunning;
@@ -39,9 +41,22 @@ public class FootstepController : MonoBehaviour
 
     void PlayFootstepSound()
     {
+        if (!IsMoving())
+        {
+            StopFootsteps();
+            return;
+        }
+
         MaterialCheck();
         RunCheck();
         audioSource.Play();
+    }
+
+    private bool IsMoving()
+    {
+        Vector3 velocity = playerRef.linearVelocity;
+        velocity.y = 0f;
+        return velocity.magnitude > MinVelocity;
     }
 
     void MaterialCheck()
@@ -96,6 +111,14 @@ public class FootstepController : MonoBehaviour
                     break;
             }
         }
-        Debug.Log("Material: " + MaterialValue + " - Run: " + isRunning);
+    }
+
+    private void StopFootsteps()
+    {
+        if (audioSource.isPlaying)
+        {
+            audioSource.Stop();
+            audioSource.resource = null;
+        }
     }
 }
