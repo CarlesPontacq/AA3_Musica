@@ -1753,9 +1753,12 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3463732054080317445, guid: 0e54ca28fd5884049b6a0b0adc386942, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 299101153}
     - targetCorrespondingSourceObject: {fileID: 1196108447639942922, guid: 0e54ca28fd5884049b6a0b0adc386942, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1125481051}
+      addedObject: {fileID: 1125481054}
   m_SourcePrefab: {fileID: 100100000, guid: 0e54ca28fd5884049b6a0b0adc386942, type: 3}
 --- !u!20 &281296268 stripped
 Camera:
@@ -1767,7 +1770,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1666927474045786133, guid: 0e54ca28fd5884049b6a0b0adc386942, type: 3}
   m_PrefabInstance: {fileID: 281296267}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 299101147}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad7d6a4d96230da478125f6a85f7293b, type: 3}
@@ -1778,7 +1781,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8172359253978911886, guid: 0e54ca28fd5884049b6a0b0adc386942, type: 3}
   m_PrefabInstance: {fileID: 281296267}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 299101147}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f92512d8a38b2454fb6603e00257a8b4, type: 3}
@@ -1789,7 +1792,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7177479522922832892, guid: 0e54ca28fd5884049b6a0b0adc386942, type: 3}
   m_PrefabInstance: {fileID: 281296267}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 299101147}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a62fceb121bb7574cb3ac63e32375e1b, type: 3}
@@ -1816,6 +1819,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5379920605035272231, guid: 81eccdb141c274346816ea250e3da5f1, type: 3}
   m_PrefabInstance: {fileID: 310484554}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &299101147 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3463732054080317445, guid: 0e54ca28fd5884049b6a0b0adc386942, type: 3}
+  m_PrefabInstance: {fileID: 281296267}
+  m_PrefabAsset: {fileID: 0}
+--- !u!81 &299101153
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299101147}
+  m_Enabled: 1
 --- !u!1001 &310484554
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7190,7 +7206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd47689b438aa7142a9dbf76d274a3fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1125481051
+--- !u!114 &1125481054
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7202,8 +7218,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6b71140327bb0f459c8d58e6b9a827d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventPath: '{c101caef-bef0-47bb-b302-07ea96e318c6}'
+  audioSource: {fileID: 1580745479}
+  walkingTileSound: {fileID: 6418180475301049370, guid: 3f455990ac2bf894a9f9a96cc3377904, type: 2}
+  walkingWoodSound: {fileID: 6418180475301049370, guid: fd9893864024d774b994fcc911b88eb0, type: 2}
   distance: 2
+  volume: 2
   lm:
     serializedVersion: 2
     m_Bits: 1
@@ -8416,6 +8435,11 @@ Light:
 --- !u!4 &1580745477 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9205322723579849894, guid: d8d7d2f372568654b88614a37b3e7763, type: 3}
+  m_PrefabInstance: {fileID: 1937983205}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1580745479 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 937172757125034732, guid: d8d7d2f372568654b88614a37b3e7763, type: 3}
   m_PrefabInstance: {fileID: 1937983205}
   m_PrefabAsset: {fileID: 0}
 --- !u!43 &1601157614
@@ -9688,7 +9712,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6539429250287349405, guid: d8d7d2f372568654b88614a37b3e7763, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

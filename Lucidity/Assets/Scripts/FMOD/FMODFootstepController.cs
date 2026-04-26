@@ -1,13 +1,15 @@
 using FMODUnity;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class FMODFootstepController : MonoBehaviour
 {
-    [FMODUnity.EventRef]
-    public string eventPath = "event:/Footsteps";
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioResource walkingTileSound;
+    [SerializeField] private AudioResource walkingWoodSound;
 
-    FMOD.Studio.EventInstance Run;
+
     private float MaterialValue;
     private float RunValue;
     public float distance = 2f;
@@ -32,16 +34,13 @@ public class FMODFootstepController : MonoBehaviour
 
     }
 
-    void PlayFootstepsEvent()
+    void PlayFootstepSound()
     {
+        Debug.Log("PlayingSound");
         MaterialCheck();
         RunCheck();
-        Run = FMODUnity.RuntimeManager.CreateInstance(eventPath);
-        Run.setParameterByName("SurfaceType", MaterialValue, false);
-        Run.setParameterByName("PlayerSpeed", RunValue, false);
-        FMODUnity.RuntimeManager.AttachInstanceToGameObject(Run, feet, GetComponent<Rigidbody>());
-        Run.start();
-        Run.release();
+        audioSource.resource = MaterialValue == 1 ? walkingTileSound : walkingWoodSound; 
+        audioSource.Play();
     }
 
     void MaterialCheck()
