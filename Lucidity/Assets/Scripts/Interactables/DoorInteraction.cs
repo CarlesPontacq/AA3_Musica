@@ -14,11 +14,14 @@ public class DoorInteraction : ObjectInteraction
     [Header("Auto Open On Unlock")]
     [SerializeField] private bool autoOpenWhenUnlocked = true;
     [SerializeField] private bool autoOpenAnimated = false;
-    [SerializeField] private float defaultOpenDirection = 1f; 
+    [SerializeField] private float defaultOpenDirection = 1f;
 
     [Header("Exit Door (optional)")]
     [SerializeField] private bool requiresReportToOpen = false;
     [SerializeField] private ReportResultState reportState;
+
+    [Header("Audio Timing")]
+    [SerializeField] private float closeSoundLeadThreshold = 0.15f;
 
     private bool isOpen = false;
     private bool isLocked = false;
@@ -29,6 +32,8 @@ public class DoorInteraction : ObjectInteraction
     private Quaternion targetLocalRotation;
 
     private Vector3 soundPosition;
+
+    private bool playCloseSoundPending = false;
 
     protected override void Start()
     {
@@ -77,10 +82,19 @@ public class DoorInteraction : ObjectInteraction
             Time.deltaTime * openSpeed
         );
 
-        if (Quaternion.Angle(pivot.localRotation, targetLocalRotation) < 0.1f)
+        float angleToTarget = Quaternion.Angle(pivot.localRotation, targetLocalRotation);
+
+        if (isOpen == false && playCloseSoundPending && angleToTarget <= closeSoundLeadThreshold)
+        {
+            SFXManager.Instance.PlaySpatialSound("closeDoor", soundPosition, 1f);
+            playCloseSoundPending = false;
+        }
+
+        if (angleToTarget < 0.1f)
         {
             pivot.localRotation = targetLocalRotation;
             hasToApplyRotation = false;
+            playCloseSoundPending = false;
         }
     }
 
@@ -114,7 +128,6 @@ public class DoorInteraction : ObjectInteraction
     public void Lock()
     {
         isLocked = true;
-
         fullyInteractable = !isLocked;
     }
 
@@ -140,13 +153,14 @@ public class DoorInteraction : ObjectInteraction
         if (animate)
         {
             hasToApplyRotation = true;
-            SFXManager.Instance.PlaySpatialSound("openDoor", soundPosition, 1f);
         }
         else
         {
             hasToApplyRotation = false;
             pivot.localRotation = targetLocalRotation;
         }
+
+        SFXManager.Instance.PlaySpatialSound("openDoor", soundPosition, 1f);
     }
 
     public void Close(bool animate)
@@ -159,25 +173,22 @@ public class DoorInteraction : ObjectInteraction
         if (animate)
         {
             hasToApplyRotation = true;
-            SFXManager.Instance.PlaySpatialSound("closeDoor", soundPosition, 1f);
+            playCloseSoundPending = true;
         }
         else
         {
             hasToApplyRotation = false;
             pivot.localRotation = closedLocalRotation;
+            SFXManager.Instance.PlaySpatialSound("closeDoor", soundPosition, 1f);
         }
     }
 
     private void Toggle()
     {
         if (isOpen)
-        {
             Close(true);
-        }
         else
-        {
             Open(true);
-        }
     }
 
     public void ResetToInitialState(bool animate)
