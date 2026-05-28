@@ -1361,6 +1361,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224585965}
   - component: {fileID: 224585966}
+  - component: {fileID: 224585967}
   m_Layer: 0
   m_Name: Door2
   m_TagString: Untagged
@@ -1480,6 +1481,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &224585967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224585964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8996e71831977bf4c98aea1fa6c9c62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventPath: event:/SFX/Enviroment/Hallway/RoomAmbience
+  attachObject: {fileID: 224585965}
 --- !u!1 &226653999
 GameObject:
   m_ObjectHideFlags: 0
@@ -2026,6 +2041,7 @@ GameObject:
   m_Component:
   - component: {fileID: 288531825}
   - component: {fileID: 288531826}
+  - component: {fileID: 288531827}
   m_Layer: 0
   m_Name: Door4
   m_TagString: Untagged
@@ -2145,6 +2161,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &288531827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288531824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8996e71831977bf4c98aea1fa6c9c62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventPath: event:/SFX/Enviroment/Hallway/WashingMachine
+  attachObject: {fileID: 288531825}
 --- !u!1 &292519567
 GameObject:
   m_ObjectHideFlags: 0
@@ -11498,6 +11528,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2025729639}
   - component: {fileID: 2025729640}
+  - component: {fileID: 2025729641}
   m_Layer: 0
   m_Name: Door3
   m_TagString: Untagged
@@ -11617,6 +11648,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2025729641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025729638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8996e71831977bf4c98aea1fa6c9c62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventPath: event:/SFX/Enviroment/Hallway/CrowdAmbience
+  attachObject: {fileID: 2025729639}
 --- !u!1 &2039238066
 GameObject:
   m_ObjectHideFlags: 0
@@ -11756,6 +11801,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2041117443}
   - component: {fileID: 2041117444}
+  - component: {fileID: 2041117445}
   m_Layer: 0
   m_Name: Door1
   m_TagString: Untagged
@@ -11875,6 +11921,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2041117445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041117442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8996e71831977bf4c98aea1fa6c9c62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventPath: event:/SFX/Enviroment/Hallway/Argument
+  attachObject: {fileID: 2041117443}
 --- !u!1 &2061410150
 GameObject:
   m_ObjectHideFlags: 0
