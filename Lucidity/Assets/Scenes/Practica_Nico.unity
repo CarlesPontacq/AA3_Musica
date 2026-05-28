@@ -1493,7 +1493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8996e71831977bf4c98aea1fa6c9c62f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventPath: 
+  eventPath: event:/SFX/Enviroment/Hallway/RoomAmbience
   attachObject: {fileID: 224585965}
 --- !u!1 &226653999
 GameObject:
@@ -11933,7 +11933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8996e71831977bf4c98aea1fa6c9c62f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventPath: event:/SFX/Enviroment/Hallway/Door1
+  eventPath: event:/SFX/Enviroment/Hallway/Argument
   attachObject: {fileID: 2041117443}
 --- !u!1 &2061410150
 GameObject:
