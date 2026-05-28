@@ -1,3 +1,4 @@
+using FMOD.Studio;
 using UnityEngine;
 
 public class LightningController : MonoBehaviour
@@ -15,12 +16,15 @@ public class LightningController : MonoBehaviour
     public float nextLightningMinWaiting = 3.5f;
     public float nextLightningMaxWaiting = 7.7f;
 
-    [Header("Thunder")]
-    [SerializeField] private string audioName = "Thunders";
-    [SerializeField] private float audioVolume = 1f;
+    [Header("Thunder - FMOD")]
+    [FMODUnity.EventRef]
+    [SerializeField]
+    private string thunderEventPath;
 
     [SerializeField] private float thunderMinDelay = 0.5f;
     [SerializeField] private float thunderMaxDelay = 3.5f;
+
+    private FMOD.Studio.EventInstance thunderEventInstance;
 
     void Start()
     {
@@ -60,7 +64,18 @@ public class LightningController : MonoBehaviour
 
     private void PlayThunder()
     {
-        if (SFXManager.Instance != null)
-            SFXManager.Instance.PlayGlobalSound(audioName, audioVolume);
+        thunderEventInstance = FMODUnity.RuntimeManager.CreateInstance(thunderEventPath);
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(thunderEventInstance, transform);
+        thunderEventInstance.start();
+        thunderEventInstance.release();
+    }
+
+    private void OnDestroy()
+    {
+        if (thunderEventInstance.isValid())
+        {
+            thunderEventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            thunderEventInstance.release();
+        }
     }
 }

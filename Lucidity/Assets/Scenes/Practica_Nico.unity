@@ -6106,6 +6106,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5773447762240110792, guid: e6850be7ce0ded84f8cef8cf47c20479, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5773447762240110792, guid: e6850be7ce0ded84f8cef8cf47c20479, type: 3}
+      propertyPath: thunderEventPath
+      value: event:/SFX/Enviroment/Thunder
+      objectReference: {fileID: 0}
+    - target: {fileID: 5773447762240110792, guid: e6850be7ce0ded84f8cef8cf47c20479, type: 3}
       propertyPath: lightnings.Array.size
       value: 1
       objectReference: {fileID: 0}
