@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class F_ElevatorSFX : MonoBehaviour
+public class FMOD_3D_SFX : MonoBehaviour
 {
     [FMODUnity.EventRef]
     public string eventPath;
